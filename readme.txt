@@ -10,7 +10,7 @@ Setup project instructions
 
 1) Make sure project environment uses python2.7.
 2) Make sure you are inside project folder where manage.py file exists.
-3) Run "pip install -r requirements.text" in terminal to setup project.
+3) Run "pip install -r requirements.txt" in terminal to setup project.
 4) Run project by typing "python manage.py runserver" on terminal.
 
 
