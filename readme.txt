@@ -12,6 +12,7 @@ Setup project instructions
 2) Make sure you are inside project folder where manage.py file exists.
 3) Run "pip install -r requirements.txt" in terminal to setup project.
 4) Run project by typing "python manage.py runserver" on terminal.
+5) Visit http://127.0.0.1:8000/ with your Web browser
 
 
 API instructions
