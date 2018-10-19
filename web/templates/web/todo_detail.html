@@ -1,0 +1,15 @@
+{% extends 'web/base.html' %}
+{% block page_title %}{{ object.title }}{% endblock page_title %}
+{% block content %}
+
+<h3>{{ object.title }}</h3>
+<p><span>Date:</span> {{ object.date|date:"F d. Y" }}</p>
+<p><span>Time:</span> {{ object.time|time:"g:i A"|lower }}</p>
+<p><span>Status:</span> {{ object.get_status }}</p>
+<p>{{ object.description }}</p>
+
+
+<a class="btn btn-secondary" href="{% url 'todo_list' %}">Back</a>
+<a class="btn btn-primary" href="{% url 'todo_update' object.get_slug object.id %}">Edit</a>
+
+{% endblock content %}

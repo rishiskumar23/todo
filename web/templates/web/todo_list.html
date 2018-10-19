@@ -1,0 +1,40 @@
+{% extends 'web/base.html' %}
+
+{% block content %}
+
+<h3 class="float-right"><a class="btn btn-primary" href="{% url 'todo_create' %}">Add To-do Item</a></h3>
+
+    <div class="container-fluid">
+        <table class="table table-hover">
+            <thead>
+                <tr class="d-flex">
+                    <th scope="col" class="col-1">Index</th>
+                    <th scope="col" class="col-2">Title</th>
+                    <th scope="col" class="col-3">Description</th>
+                    <th scope="col" class="col-1">Date</th>
+                    <th scope="col" class="col-1">Time</th>
+                    <th scope="col" class="col-1">Status</th>
+                    <th scope="col" class="col-1"></th>
+                    <th scope="col" class="col-1"></th>
+                    <th scope="col" class="col-1"></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in todo_list %}
+                <tr class="d-flex">
+                    <td scope="row" class="col-1"><p>{{ forloop.counter }}</p></td>
+                    <td class="col-2">{{ item.title }}</td>
+                    <td class="col-3">{{ item.description }}</td>
+                    <td class="col-1">{{ item.date}}</td>
+                    <td class="col-1">{{ item.time|time:"g:i A"|lower }}</td>
+                    <td class="col-1">{{ item.get_status }}</td>
+                    <td class="col-1"><a class="btn btn-primary" href="{% url 'todo_detail' item.get_slug item.id %}">View</a></td>
+                    <td class="col-1"><a class="btn btn-secondary" href="{% url 'todo_update' item.get_slug item.id %}">Edit</a></td>
+                    <td class="col-1"><a class="btn btn-danger" href="{% url 'todo_delete' item.get_slug item.id %}">Delete</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+{% endblock content %}
