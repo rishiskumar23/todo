@@ -17,10 +17,19 @@ Including another URLconf
 import api.urls
 from django.conf.urls import url, include
 from django.contrib import admin
+from rest_framework import routers
 from web.views import (TodoListView, TodoDetailView, TodoDeleteView, TodoCreateView,
                        TodoUpdateView)
+from drf_demo import views
+
+
+router = routers.DefaultRouter()
+router.register(r'users', views.UserViewSet)
+router.register(r'groups', views.GroupViewSet)
 
 urlpatterns = [
+    url('drf_demo/', include(router.urls)),
+    url('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^admin/', admin.site.urls),
     url(r'^v1/', include(api.urls)),
     url(r'^$', TodoListView.as_view(), name="todo_list"),
