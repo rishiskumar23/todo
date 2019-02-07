@@ -21,6 +21,9 @@ API instructions
 Request to "http://127.0.0.1:8000/v1/todo-list/" to get To-do item list, from there you will get api for individual item
 
 
+Root url for todo list => http://127.0.0.1:8000/v1/
+Root url for django rest framework demo => http://127.0.0.1:8000/drf-demo/
+
 Admin credentials
 -----------------
 
