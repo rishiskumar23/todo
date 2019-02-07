@@ -26,7 +26,7 @@ urlpatterns = [
     url(r'^drf-demo', include(drf_demo.urls)),
     # url('api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^admin/', admin.site.urls),
-    url(r'^v1/', include(api.urls)),
+    url(r'^v1', include(api.urls)),
     url(r'^$', TodoListView.as_view(), name="todo_list"),
     url(r'^add/$', TodoCreateView.as_view(), name="todo_create"),
     url(r'^(?P<todo_slug>[-\w]*)/(?P<todo_id>\d+)/$', TodoDetailView.as_view(), name="todo_detail"),

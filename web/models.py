@@ -39,7 +39,7 @@ class Todo(models.Model):
     def __str__(self):
         return self.title
 
-    def get_status(self):
+    def todo_status(self):
         if self.status == self.INPROGRESS:
             return 'In-progress'
         elif self.status == self.COMPLETED:
@@ -53,5 +53,5 @@ class Todo(models.Model):
         slug = slugify(self.title)
         return slug
 
-    def get_api_url(self):
-        return (domain + reverse('todo_detail_api', args=(self.id,)))
+    # def get_api_url(self):
+    #     return (domain + reverse('todo_detail_api', args=(self.id,)))
